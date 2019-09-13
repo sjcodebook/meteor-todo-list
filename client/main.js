@@ -2,6 +2,8 @@ import { Template } from 'meteor/templating';
 
 Tasks = new Mongo.Collection('tasks');
 
+Meteor.subscribe('tasks');
+
 Template.todos.helpers({
   tasks: function() {
     return Tasks.find({}, { sort: { createdAt: -1 } });
@@ -24,4 +26,4 @@ Template.todos.events({
   }
 });
 
-Meteor.subscribe('tasks');
+// Template.myAtForm.replaces('atForm');
