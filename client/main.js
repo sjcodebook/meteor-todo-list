@@ -26,4 +26,4 @@ Template.todos.events({
   }
 });
 
-// Template.myAtForm.replaces('atForm');
+Template['override-atPwdFormBtn'].replaces('atPwdFormBtn');
