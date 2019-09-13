@@ -1,21 +1,40 @@
 <template name="todos">
-  {{#if currentUser }}
-  {{> loginButtons}}
-  <h1>Add tasks</h1>
-  <form class="add-task">
-    <label for="name">Name</label>
-    <input type="text" name="name" placeholder="Add Task" />
-    <input type="submit" value="Submit" />
-  </form>
-  <hr />
-  <h3>Tasks</h3>
-  <ul>
-    {{#each tasks }}
-    <li>{{ name }} <a href="#" class="delete-task">X</a></li>
-    {{/each}}
-  </ul>
-  {{else}}
-  <p>Please Login First</p>
-  <a href="/">Go To Login Page</a>
-  {{/if}}
+  <div class="container">
+    {{#if currentUser }}
+    {{> loginButtons}}
+
+    <h1 class="display-4 mt-3">Add tasks</h1>
+    <form class="add-task">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          name="name"
+          type="text"
+          class="form-control"
+          placeholder="Add Task"
+        />
+      </div>
+      <button class="btn btn-primary btn-block" type="submit" value="Submit">
+        Add
+      </button>
+    </form>
+    <hr />
+    <h3 class="display-4">Tasks</h3>
+    <ul class="list-group">
+      {{#each tasks }}
+      <li class="list-group-item lead">
+        {{ name }}
+        <a href="#" class="delete-task">
+          <button class="btn btn-outline-danger ml-3">
+            Delete
+          </button></a
+        >
+      </li>
+      {{/each}}
+    </ul>
+    {{else}}
+    <p>Please Login First</p>
+    <a href="/">Go To Login Page</a>
+    {{/if}}
+  </div>
 </template>
